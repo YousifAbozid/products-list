@@ -6,9 +6,13 @@ const App = () => {
 
   useEffect(() => {
     const getData = async () => {
-      await axios.get('http://localhost:3001/products').then((res) => {
-        setProducts(res.data)
-      })
+      await axios
+        .get(
+          'http://products-list-backend-dev.us-east-1.elasticbeanstalk.com/products'
+        )
+        .then((res) => {
+          setProducts(res.data)
+        })
     }
 
     getData().catch((err) => {

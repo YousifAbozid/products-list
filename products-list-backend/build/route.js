@@ -8,4 +8,5 @@ var productController_1 = __importDefault(require("./productController"));
 var productsRouter = express_1.default.Router();
 var controller = new productController_1.default();
 productsRouter.get('/', controller.getProducts);
+productsRouter.post('/', controller.addProduct);
 exports.default = productsRouter;

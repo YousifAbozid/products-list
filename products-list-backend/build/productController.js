@@ -62,6 +62,27 @@ var ProductController = /** @class */ (function () {
             });
         });
     };
+    ProductController.prototype.addProduct = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var product, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, store.create(req.body)];
+                    case 1:
+                        product = _a.sent();
+                        res.json(product);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_2 = _a.sent();
+                        res.status(400).json({ error: "Could not add product. ".concat(error_2) });
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     return ProductController;
 }());
 exports.default = ProductController;
