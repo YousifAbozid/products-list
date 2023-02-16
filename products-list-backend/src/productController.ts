@@ -12,4 +12,14 @@ export default class ProductController {
       res.status(404).json({ error: `Could not get products. ${error}` })
     }
   }
+
+  async addProduct(req: express.Request, res: express.Response) {
+    try {
+      // @ts-ignore
+      const product = await store.create(req.body)
+      res.json(product)
+    } catch (error) {
+      res.status(400).json({ error: `Could not add product. ${error}` })
+    }
+  }
 }

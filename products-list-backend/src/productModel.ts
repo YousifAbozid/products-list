@@ -21,4 +21,18 @@ export class ProductStore {
       throw new Error(`Could not get products. Error: ${error}`)
     }
   }
+
+  // Add a product
+  async create(p: Product): Promise<Product> {
+    try {
+      const conn = await pool.connect()
+      const sql =
+        'INSERT INTO products (name, price) VALUES ($1, $2) RETURNING *'
+      const result = await conn.query(sql, [p.name, p.price])
+      conn.release()
+      return result.rows[0]
+    } catch (error) {
+      throw new Error(`Could not add product ${p.name}. Error: ${error}`)
+    }
+  }
 }

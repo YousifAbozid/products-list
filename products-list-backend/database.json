@@ -12,6 +12,9 @@
     },
     "password": {
       "ENV": "POSTGRES_PASSWORD"
+    },
+    "PORT": {
+      "ENV": "PORT"
     }
   },
   "test": {
@@ -27,6 +30,9 @@
     },
     "password": {
       "ENV": "POSTGRES_PASSWORD"
+    },
+    "PORT": {
+      "ENV": "PORT"
     }
   }
 }

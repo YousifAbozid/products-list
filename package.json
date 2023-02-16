@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "frontend:install": "cd products-list-frontend && npm install",
+    "frontend:build": "cd products-list-frontend && npm run build",
+    "backend:install": "cd products-list-backend && npm install",
+    "backend:build": "cd products-list-backend && npm run build",
+    "frontend:deploy": "cd products-list-frontend && npm run deploy"
+  }
+}

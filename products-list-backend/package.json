@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon src/index.ts",
-    "build": "rm -rf build && npx tsc"
+    "build": "rm -rf build && npx tsc",
+    "migrate-up-dev": "db-migrate up -e dev"
   },
   "author": "Yousif Abozid",
   "license": "ISC",
