@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import productRouter from './route'
 
 const app: express.Application = express()
 dotenv.config()
@@ -9,6 +10,8 @@ const port = process.env.PORT || 3001
 
 app.use(bodyParser.json())
 app.use(cors())
+
+app.use('/products', productRouter)
 
 app.get('/', (req: express.Request, res: express.Response) => {
   res.send('Server is running')
