@@ -35,10 +35,9 @@ jobs:
             npm run backend:deploy
 
 workflows:
-  products-list:
+  my-workflow:
     jobs:
       - build
-      - hold:
           filters:
             branches:
               only:
