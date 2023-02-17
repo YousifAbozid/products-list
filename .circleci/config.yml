@@ -36,9 +36,7 @@ jobs:
 
 workflows:
   my-workflow:
-    jobs:
-      - build
-          filters:
-            branches:
-              only:
-                - source
+    filters:
+      branches:
+        only:
+          - source
