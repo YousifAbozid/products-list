@@ -28,6 +28,15 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
+  deploy:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - node/install:
+          node-version: '16.15'
+      - eb/setup
+      - aws-cli/setup
+      - checkout
       - run:
           name: Deploy App
           command: |
@@ -35,10 +44,17 @@ jobs:
             npm run backend:deploy
 
 workflows:
-  my-workflow:
+  udagram:
     jobs:
-      - build:
-        filters:
-          branches:
-            only:
-              - source
+      - build
+      - hold:
+          filters:
+            branches:
+              only:
+                - master
+          type: approval
+          requires:
+            - build
+      - deploy:
+          requires:
+            - hold
