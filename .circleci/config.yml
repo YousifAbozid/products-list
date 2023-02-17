@@ -5,10 +5,6 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
 jobs:
   build:
-    filters:
-      branches:
-        only:
-          - source
     docker:
       - image: 'cimg/node:14.15'
     steps:
@@ -37,3 +33,10 @@ jobs:
           command: |
             npm run frontend:deploy
             npm run backend:deploy
+workflows:
+  jobs:
+    - build
+      filters:
+        branches:
+          only:
+            - source
