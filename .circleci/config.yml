@@ -51,7 +51,7 @@ workflows:
           filters:
             branches:
               only:
-                - source
+                - main
           type: approval
           requires:
             - build
