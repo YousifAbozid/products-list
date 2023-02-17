@@ -44,14 +44,14 @@ jobs:
             npm run backend:deploy
 
 workflows:
-  udagram:
+  my-workflow:
     jobs:
       - build
       - hold:
           filters:
             branches:
               only:
-                - master
+                - source
           type: approval
           requires:
             - build
