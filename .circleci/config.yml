@@ -37,7 +37,7 @@ jobs:
 workflows:
   my-workflow:
     jobs:
-      - build
+      - build:
         filters:
           branches:
             only:
