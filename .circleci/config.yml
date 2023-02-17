@@ -4,12 +4,13 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
 jobs:
-  build and deploy:
+  build-and-deploy:
+    filters:
+      branches:
+        only:
+          - source
     docker:
       - image: 'cimg/node:14.15'
-    branches:
-      only:
-        - source
     steps:
       - node/install
       - checkout
